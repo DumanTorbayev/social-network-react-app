@@ -1,0 +1,21 @@
+.sidebar {
+  grid-area: sidebar;
+  background-color: #13CE66;
+  &__menu {
+    list-style: none;
+    padding: 1rem;
+    li {
+      &:last-child {
+        margin-top: 3rem;
+      }
+    }
+    &__link {
+      font-size: 1.4rem;
+      color: #fff;
+      &:hover {
+        text-decoration: none;
+        color: blueviolet;
+      }
+    }
+  }
+}
