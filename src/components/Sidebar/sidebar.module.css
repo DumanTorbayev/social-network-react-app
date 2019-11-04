@@ -1,0 +1,18 @@
+.sidebar {
+  grid-area: sidebar;
+  background-color: #13CE66; }
+  .sidebar .menu {
+    list-style: none;
+    padding: 1rem; }
+    .sidebar .menu li:last-child {
+      margin-top: 3rem; }
+    .sidebar .menu .item {
+      font-size: 1.4rem;
+      color: #fff; }
+      .sidebar .menu .item:hover {
+        text-decoration: none;
+        color: blueviolet; }
+      .sidebar .menu .item.active {
+        color: blueviolet; }
+
+/*# sourceMappingURL=sidebar.module.css.map */

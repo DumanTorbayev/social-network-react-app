@@ -481,6 +481,11 @@ dd {
 
 /*Custom styles*/
 
+#root {
+  background-color: #EDEEF0;
+  height: 100vh;
+}
+
 .container {
   display: grid;
   grid-template-areas: "header header" "sidebar content";

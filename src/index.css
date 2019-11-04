@@ -488,6 +488,10 @@ dd {
   margin-bottom: .5rem; }
 
 /*Custom styles*/
+#root {
+  background-color: #EDEEF0;
+  height: 100vh; }
+
 .container {
   display: grid;
   grid-template-areas: "header header" "sidebar content";
@@ -498,4 +502,4 @@ dd {
   width: 100%;
   margin: 0 auto; }
 
-/*# sourceMappingURL=profile.cssss.map */
+/*# sourceMappingURL=index.css.map */

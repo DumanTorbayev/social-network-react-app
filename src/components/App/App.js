@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import Header from '../Header/Header';
-import Sidebar from "../Sidebar/Sidebar";
-import Profile from "../Profile/Profile";
+import Header from '../Header/Header.jsx';
+import Sidebar from "../Sidebar/Sidebar.jsx";
+import Profile from "../Profile/Profile.jsx";
+import Dialogs from "../Dialogs/Dialogs";
 
 class App extends Component{
     render() {
@@ -9,7 +10,8 @@ class App extends Component{
             <div className="container">
                 <Header/>
                 <Sidebar/>
-                <Profile/>
+                {/*<Profile/>*/}
+                <Dialogs/>
             </div>
         )
     }

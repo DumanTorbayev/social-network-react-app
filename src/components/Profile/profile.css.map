@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,QAAS;EACP,SAAS,EAAE,OAAO;EAClB,gBAAgB,EAAE,UAAU;EAE1B,wBAAI;IACF,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,KAAK",
-"sources": ["profile.scss"],
-"names": [],
-"file": "profile.css"
-}
