@@ -1,4 +1,19 @@
-.wrapper {
-  background-color: #fff;
-  box-shadow: 0 0 5px 0 #000;
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  padding: 1rem;
+
+  .dialogsItems {
+
+    .item {
+
+    }
+  }
+
+  .messages {
+
+    .dialog {
+
+    }
+  }
 }

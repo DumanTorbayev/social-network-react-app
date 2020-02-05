@@ -1,0 +1,25 @@
+/*Custom styles*/
+
+#root {
+  background-color: #b2b4b6;
+  height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-template-areas: "header header" "sidebar content";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content {
+  grid-area: content;
+  background-color: #4976A8;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+  color: #fff;
+}

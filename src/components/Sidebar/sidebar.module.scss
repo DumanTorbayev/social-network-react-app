@@ -1,24 +1,21 @@
 .sidebar {
   grid-area: sidebar;
-  background-color: #13CE66;
+  background-color: #4976A8;
+  border-radius: 5px;
   .menu {
     list-style: none;
     padding: 1rem;
-    li {
-      &:last-child {
-        margin-top: 3rem;
-      }
-    }
     .item {
       font-size: 1.4rem;
       color: #fff;
+      text-decoration: none;
+
       &:hover {
         text-decoration: none;
-        color: blueviolet;
       }
 
       &.active {
-        color: blueviolet;
+        color: #2ad0ff;
       }
     }
   }

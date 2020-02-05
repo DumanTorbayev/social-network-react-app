@@ -487,19 +487,4 @@ dt {
 dd {
   margin-bottom: .5rem; }
 
-/*Custom styles*/
-#root {
-  background-color: #EDEEF0;
-  height: 100vh; }
-
-.container {
-  display: grid;
-  grid-template-areas: "header header" "sidebar content";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto; }
-
 /*# sourceMappingURL=index.css.map */
