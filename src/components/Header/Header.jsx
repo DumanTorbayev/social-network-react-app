@@ -1,10 +1,16 @@
 import React from 'react';
-import css from './header.module.css';
+import css from './header.module.scss';
+import {NavLink} from "react-router-dom";
 
 const Header = () => {
     return (
         <header className={css.header}>
-            <img src="https://i.pinimg.com/originals/4b/06/0e/4b060edd41682d859ce14cac42f81857.jpg" alt=""/>
+            <div className={css.container}>
+                <NavLink to='/news' className={css.navbarBrand}>
+                    <img src="logo.svg" alt=""/>
+                    <span>Gazebo</span>
+                </NavLink>
+            </div>
         </header>
     )
 };

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Route} from "react-router-dom";
-import css from './App.module.css'
+import css from './App.module.scss'
 import Header from '../Header/Header.jsx';
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import Profile from "../Profile/Profile.jsx";
@@ -14,13 +14,15 @@ class App extends Component{
         return (
             <div className={css.container}>
                 <Header/>
-                <Sidebar/>
-                <div className={css.content}>
-                    <Route path="/profile" component={Profile}/>
-                    <Route path="/dialogs" component={Dialogs}/>
-                    <Route path="/news" component={News}/>
-                    <Route path="/music" component={Music}/>
-                    <Route path="/settings" component={Settings}/>
+                <div className={css.contentWrap}>
+                    <Sidebar/>
+                    <div className={css.content}>
+                        <Route path="/news" component={News}/>
+                        <Route path="/dialogs" component={Dialogs}/>
+                        <Route path="/music" component={Music}/>
+                        <Route path="/profile" component={Profile}/>
+                        <Route path="/settings" component={Settings}/>
+                    </div>
                 </div>
             </div>
         )

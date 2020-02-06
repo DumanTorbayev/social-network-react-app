@@ -1,13 +1,13 @@
 .sidebar {
   grid-area: sidebar;
-  background-color: #4976A8;
+  background-color: #313131;
   border-radius: 5px;
   .menu {
     list-style: none;
     padding: 1rem;
     .item {
       font-size: 1.4rem;
-      color: #fff;
+      color: #727272;
       text-decoration: none;
 
       &:hover {
@@ -15,7 +15,7 @@
       }
 
       &.active {
-        color: #2ad0ff;
+        color: #FF7554;
       }
     }
   }
