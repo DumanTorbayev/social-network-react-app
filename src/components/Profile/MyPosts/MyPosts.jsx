@@ -4,7 +4,7 @@ import css from './MyPosts.module.css';
 
 const MyPosts = () => {
 
-    let postData = [
+    let posts = [
         {
             id: 1,
             message: "Lorem Ipsum is simply dummy text of the",
@@ -20,7 +20,14 @@ const MyPosts = () => {
             message: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
             likesCount: 45,
         },
+        {
+            id: 6,
+            message: "И вот я здесь",
+            likesCount: 125,
+        },
     ];
+
+    let postElements = posts.map( p => <Post likeCount={p.likesCount} message={p.message}/> );
 
     return (
         <div className={css.posts}>
@@ -30,9 +37,7 @@ const MyPosts = () => {
                 <button>Send</button>
             </div>
             <div className={css.previous_posts}>
-               <Post likeCount={postData[0].likesCount} message={postData[0].message}/>
-               <Post likeCount={postData[1].likesCount} message={postData[1].message}/>
-               <Post likeCount={postData[2].likesCount} message={postData[2].message}/>
+                {postElements}
             </div>
         </div>
     )
