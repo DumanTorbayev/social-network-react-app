@@ -5,7 +5,7 @@ import css from './News.module.scss'
 const News = () => {
     return (
         <div className={css.news}>
-            <h1>News</h1>
+            <h1 className={css.title}>News</h1>
         </div>
     )
 };
