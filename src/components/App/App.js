@@ -10,12 +10,14 @@ import Music from "../Music/Music";
 import Settings from "../Settings/Settings";
 
 const App = (props) => {
+
+
     return (
         <BrowserRouter>
             <div className={css.container}>
                 <Header/>
                 <div className={css.contentWrap}>
-                    <Sidebar/>
+                    <Sidebar state={props.state.sidebar}  />
                     <div className={css.content}>
                         <Route path="/news"
                                component={News}

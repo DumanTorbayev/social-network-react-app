@@ -31,10 +31,50 @@ let state = {
             {id: 4, message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."},
         ],
         dialogsData: [
-            {id: 1, name: 'Alik'},
-            {id: 2, name: 'Sveta'},
-            {id: 3, name: 'Nargiz'},
-            {id: 4, name: 'Aisulu'},
+            {
+                id: 1,
+                name: 'Alik',
+                img: 'man.png'
+            },
+            {
+                id: 2,
+                name: 'Sveta',
+                img: 'man.png'
+            },
+            {
+                id: 3,
+                name: 'Nargiz',
+                img: 'man.png'
+            },
+            {
+                id: 4,
+                name: 'Aisulu',
+                img: 'man.png'
+            },
+        ],
+    },
+    sidebar: {
+        friends: [
+            {
+                id: 1,
+                name: "Johnson",
+                img: 'man.png'
+            },
+            {
+                id: 2,
+                name: "Jessica",
+                img: 'man.png'
+            },
+            {
+                id: 3,
+                name: "Maroon",
+                img: 'man.png'
+            },
+            {
+                id: 4,
+                name: "Skillet",
+                img: 'man.png'
+            },
         ],
     },
 };

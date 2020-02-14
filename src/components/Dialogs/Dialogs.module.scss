@@ -1,21 +1,81 @@
 .dialogs {
   display: grid;
-  grid-template-columns: 2fr 10fr;
-  padding: 1rem;
+  grid-template-columns: 2.5fr 9.5fr;
 
   .dialogsItems {
+    border-right: 1px solid #FF7554;
+    padding: 1.5rem;
+
     .item {
+      display: flex;
+      align-items: center;
       color: #fff;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     .link {
       color: #fff;
+      font-size: 1.125rem;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &:focus {
+        text-decoration: none;
+      }
+
+      &.active {
+        color: #FF7554;
+      }
     }
   }
 
   .messages {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+
+
     .dialog {
       color: #fff;
+      font-size: .875rem;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+
+
+      &:nth-child(even) {
+        text-align: right;
+
+
+        span {
+          background-color: #FF7554;
+        }
+      }
+
+      span {
+        padding: .625rem;
+        border-radius: 5px;
+        border: 1px solid #FF7554;;
+      }
     }
+  }
+}
+
+.userIcon {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: .625rem;
+
+  img {
+    width: 100%;
   }
 }

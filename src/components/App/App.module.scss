@@ -7,10 +7,12 @@
   display: grid;
   grid-template-columns: 2fr 10fr;
   grid-template-areas: "sidebar content content content";
+  align-items: start;
   grid-gap: 15px;
 }
 
 .content {
   grid-area: content;
   background-color: #313131;
+  border-radius: 5px;
 }

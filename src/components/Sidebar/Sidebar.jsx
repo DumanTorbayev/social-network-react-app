@@ -1,8 +1,13 @@
 import React from 'react';
 import css from './sidebar.module.scss';
 import {NavLink} from "react-router-dom";
+import Friends from "./Friends/Friends";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+    console.log(props);
+
+    let friends = props.state.friends.map( f => <Friends name={f.name} id={f.id} img={f.img}/> );
+
     return (
         <nav className={css.sidebar}>
             <ul className={css.menu}>
@@ -12,6 +17,16 @@ const Sidebar = () => {
                 <li><NavLink className={css.item} activeClassName={css.active} to="/profile">Profile</NavLink></li>
                 <li><NavLink className={css.item} activeClassName={css.active} to="/settings">Settings</NavLink></li>
             </ul>
+
+            <div className={css.friends}>
+                <div className={css.title}>
+                    Friends
+                </div>
+                <div className={css.friendsWrap}>
+                    {friends}
+                </div>
+
+            </div>
         </nav>
     )
 };
