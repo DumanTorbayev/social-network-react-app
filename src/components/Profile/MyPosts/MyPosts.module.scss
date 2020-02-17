@@ -7,6 +7,30 @@
   }
 
   .new_posts {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     margin-bottom: 2rem;
+
+    textarea {
+      resize: none;
+      min-height: 100px;
+      width: 50%;
+      margin-bottom: .625rem;
+      background-color: transparent;
+      border-radius: 5px;
+      color: #fff;
+      padding: .5rem;
+    }
+    
+    button {
+      background-color: #FF7554;
+      border: none;
+      font-weight: 500;
+      padding: .5rem 1.5rem;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
   }
 }

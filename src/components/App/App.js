@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import css from './App.module.scss'
 import Header from '../Header/Header.jsx';
 import Sidebar from "../Sidebar/Sidebar.jsx";
@@ -13,31 +13,29 @@ const App = (props) => {
 
 
     return (
-        <BrowserRouter>
-            <div className={css.container}>
-                <Header/>
-                <div className={css.contentWrap}>
-                    <Sidebar state={props.state.sidebar}  />
-                    <div className={css.content}>
-                        <Route path="/news"
-                               component={News}
-                        />
-                        <Route path="/dialogs"
-                               render={() => <Dialogs state={props.state.dialogsPage}/>}
-                        />
-                        <Route path="/music"
-                               component={Music}
-                        />
-                        <Route path="/profile"
-                               render={() => <Profile state={props.state.profilePage}/>}
-                        />
-                        <Route path="/settings"
-                               component={Settings}
-                        />
-                    </div>
+        <div className={css.container}>
+            <Header/>
+            <div className={css.contentWrap}>
+                <Sidebar state={props.state.sidebar}/>
+                <div className={css.content}>
+                    <Route path="/news"
+                           component={News}
+                    />
+                    <Route path="/dialogs"
+                           render={() => <Dialogs state={props.state.dialogsPage}/>}
+                    />
+                    <Route path="/music"
+                           component={Music}
+                    />
+                    <Route path="/profile"
+                           render={() => <Profile state={props.state.profilePage}/>}
+                    />
+                    <Route path="/settings"
+                           component={Settings}
+                    />
                 </div>
             </div>
-        </BrowserRouter>
+        </div>
     )
 };
 
