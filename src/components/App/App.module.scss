@@ -1,18 +1,43 @@
 /*Custom styles*/
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
 .contentWrap {
+  flex: 1 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas: "sidebar sidebar content content content content content content content content content content";
+  align-items: start;
+  grid-gap: 15px;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding-top: 5rem;
-  display: grid;
-  grid-template-columns: 2fr 10fr;
-  grid-template-areas: "sidebar content content content";
-  align-items: start;
-  grid-gap: 15px;
+  padding-bottom: 75px;
 }
 
 .content {
   grid-area: content;
-  background-color: #313131;
+  background-color: #fff;
   border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .15);
+  color: #333;
+}
+
+.footer {
+  flex: 0 0 auto;
+  background-color: #313131;
+  color: #fff;
+  font-family: 'Lobster', cursive;
+  font-size: 2rem;
+
+  .footerContainer {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+  }
 }

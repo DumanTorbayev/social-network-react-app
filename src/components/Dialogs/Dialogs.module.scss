@@ -9,7 +9,7 @@
     .item {
       display: flex;
       align-items: center;
-      color: #fff;
+      color: #727272;
       margin-bottom: 1rem;
 
       &:last-child {
@@ -18,7 +18,7 @@
     }
 
     .link {
-      color: #fff;
+      color: #727272;
       font-size: 1.125rem;
       font-weight: 500;
 
@@ -37,13 +37,14 @@
   }
 
   .messages {
+    position: relative;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1rem 4.6rem 1rem;
 
 
     .dialog {
-      color: #fff;
+      color: #727272;
       font-size: .875rem;
       font-weight: 500;
       margin-bottom: 2.5rem;
@@ -51,6 +52,7 @@
 
       &:nth-child(even) {
         text-align: right;
+        color: #fff;
 
 
         span {
@@ -62,6 +64,35 @@
         padding: .625rem;
         border-radius: 5px;
         border: 1px solid #FF7554;;
+      }
+    }
+    
+    .inputWrap {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      border-top: 1px solid #FF7554;
+
+      input {
+        width: 80%;
+        resize: none;
+        border-radius: 5px;
+        border: 1px solid #727272;
+        padding: .5rem;
+      }
+
+      button {
+        width: 18%;
+        border-radius: 5px;
+        background-color: #FF7554;
+        border: none;
+        color: #fff;
+        font-weight: 500;
+        cursor: pointer;
       }
     }
   }

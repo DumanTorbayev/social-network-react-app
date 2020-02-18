@@ -6,11 +6,13 @@ const MyPosts = (props) => {
 
     let postElements = props.posts.map( p => <Post likeCount={p.likesCount} message={p.message}/> );
 
-    let addPost = () => {
-        console.log(newPostElement.current.value);
-    };
-
     let newPostElement = React.createRef();
+
+    let addPost = () => {
+        let text = newPostElement.current.value;
+        props.addPost(text);
+        newPostElement.current.value = '';
+    };
 
     return (
         <div className={css.posts}>

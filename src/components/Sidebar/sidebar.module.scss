@@ -1,7 +1,9 @@
 .sidebar {
   grid-area: sidebar;
-  background-color: #313131;
+  background-color: #fff;
   border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .15);
+
   .menu {
     list-style: none;
     padding: 1rem;
