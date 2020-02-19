@@ -4,7 +4,6 @@ import {NavLink} from "react-router-dom";
 import Friends from "./Friends/Friends";
 
 const Sidebar = (props) => {
-    console.log(props);
 
     let friends = props.state.friends.map( f => <Friends name={f.name} id={f.id} img={f.img}/> );
 

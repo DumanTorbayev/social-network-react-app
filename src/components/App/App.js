@@ -10,7 +10,6 @@ import Music from "../Music/Music";
 import Settings from "../Settings/Settings";
 
 const App = (props) => {
-    console.log(props)
     return (
         <div className={css.container}>
             <Header/>
@@ -28,8 +27,9 @@ const App = (props) => {
                     />
                     <Route path="/profile"
                            render={() => <Profile
-                               state={props.state.profilePage}
-                               addPost={props.addPost} />}
+                               profilePage={props.state.profilePage}
+                               addPost={props.addPost}
+                               updateNewPostText={props.updateNewPostText}/>}
                     />
                     <Route path="/settings"
                            component={Settings}
