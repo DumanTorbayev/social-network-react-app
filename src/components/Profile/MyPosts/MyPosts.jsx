@@ -15,7 +15,7 @@ const MyPosts = (props) => {
     let postChange = () => {
         let text = newPostElement.current.value;
         props.updateNewPostText(text);
-    }
+    };
 
     return (
         <div className={css.posts}>
