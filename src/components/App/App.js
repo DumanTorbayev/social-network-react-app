@@ -8,8 +8,10 @@ import Dialogs from "../Dialogs/Dialogs";
 import News from "../News/News";
 import Music from "../Music/Music";
 import Settings from "../Settings/Settings";
+import DialogsContainer from "../Dialogs/DialogsContainer";
 
 const App = (props) => {
+    debugger
     return (
         <div className={css.container}>
             <Header/>
@@ -20,19 +22,13 @@ const App = (props) => {
                            component={News}
                     />
                     <Route path="/dialogs"
-                           render={() => <Dialogs
-                               state={props.state.dialogsPage}
-                               dispatch={props.dispatch}
-                           />}
+                           render={() => <DialogsContainer store={props.store} />}
                     />
                     <Route path="/music"
                            component={Music}
                     />
                     <Route path="/profile"
-                           render={() => <Profile
-                               profilePage={props.state.profilePage}
-                               dispatch={props.dispatch}
-                           />}
+                           render={() => <Profile store={props.store} />}
                     />
                     <Route path="/settings"
                            component={Settings}
