@@ -5,9 +5,9 @@ import MessageItems from "./MessageItems/MessageItems";
 
 
 const Dialogs = (props) => {
-    let dialogElements = props.state.dialogsData.map( d => <DialogItems name={d.name} id={d.id} img={d.img}/> );
-    let messageElements = props.state.messages.map( m => <MessageItems message={m.message}/> );
-    let newMessageText = props.state.newMessageText;
+    let dialogElements = props.dialogsPage.dialogsData.map( d => <DialogItems name={d.name} id={d.id} img={d.img}/> );
+    let messageElements = props.dialogsPage.messages.map( m => <MessageItems message={m.message}/> );
+    let newMessageText = props.dialogsPage.newMessageText;
 
     let onAddNewMessage = () => {
         props.addNewMessage()
