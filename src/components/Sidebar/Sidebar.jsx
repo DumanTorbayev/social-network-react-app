@@ -4,8 +4,7 @@ import {NavLink} from "react-router-dom";
 import Friends from "./Friends/Friends";
 
 const Sidebar = (props) => {
-    console.log(props);
-    let friends = props.friends.map(f => <Friends name={f.name} id={f.id} img={f.img}/>);
+    let friends = props.friends.map(f => <Friends name={f.name} key={f.id} id={f.id} img={f.img}/>);
 
     return (
         <nav className={css.sidebar}>
@@ -15,6 +14,7 @@ const Sidebar = (props) => {
                 <li><NavLink className={css.item} activeClassName={css.active} to="/music">Music</NavLink></li>
                 <li><NavLink className={css.item} activeClassName={css.active} to="/profile">Profile</NavLink></li>
                 <li><NavLink className={css.item} activeClassName={css.active} to="/settings">Settings</NavLink></li>
+                <li><NavLink className={css.item} activeClassName={css.active} to="/users">Users</NavLink></li>
             </ul>
 
             <div className={css.friends}>

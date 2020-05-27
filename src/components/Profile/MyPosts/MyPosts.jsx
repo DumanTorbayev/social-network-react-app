@@ -5,7 +5,7 @@ import css from './MyPosts.module.scss';
 
 const MyPosts = (props) => {
 
-    let postElements = props.posts.map( p => <Post likeCount={p.likesCount} message={p.message}/> );
+    let postElements = props.posts.map( p => <Post likeCount={p.likesCount} key={p.id} message={p.message}/> );
     let newPostText = props.newPostText;
 
     let onAddNewPost = () => {
