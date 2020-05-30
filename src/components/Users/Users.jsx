@@ -1,48 +1,17 @@
 import React from 'react';
-import css from './Users.module.scss'
+import css from './Users.module.scss';
+import * as axios from 'axios';
+import userPhoto from '../../assets/images/no-avatar.png'
 
 
 const Users = (props) => {
 
     if(props.users.length === 0) {
-        props.setUsers([
-            {
-                id: 1,
-                photoUrl: 'https://klike.net/uploads/posts/2019-03/medium/1551512888_2.jpg',
-                fullName: 'Duman',
-                followed: false,
-                status: 'Путь к сердцу женщины лежит через - Честность, Верность и Внимание!',
-                location: {
-                    city: 'Karagandy',
-                    country: 'Kazakhstan'
-                }
 
-            },
-            {
-                id: 2,
-                photoUrl: 'https://klike.net/uploads/posts/2019-03/medium/1551512888_2.jpg',
-                fullName: 'Alik',
-                followed: false,
-                status: 'Даже если у вас во рту остался лишь один зуб — улыбайтесь! Улыбка — это не количество жубов, а шоштояние души!',
-                location: {
-                    city: 'Nur-Sultan',
-                    country: 'Kazakhstan'
-                }
-
-            },
-            {
-                id: 3,
-                photoUrl: 'https://klike.net/uploads/posts/2019-03/medium/1551512888_2.jpg',
-                fullName: 'John',
-                followed: true,
-                status: 'Очень важно иметь рядом с собой человека, который обнимет и скажет — все будет хорошо.',
-                location: {
-                    city: 'Moscow',
-                    country: 'Russian Federation'
-                }
-
-            }
-        ]);
+        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+            .then(response => {
+                props.setUsers(response.data.items);
+            });
     }
 
     return (
@@ -50,18 +19,22 @@ const Users = (props) => {
             {
                 props.users.map(u => <div className={css.users__media} key={u.id}>
                     <div className={css.users__left}>
-                        <img src={u.photoUrl} alt=""/>
+                        <img src={u.photos.small !== null ? u.photos.small : userPhoto} alt=""/>
                         {
                             u.followed
-                            ? <button onClick={() => {props.usersUnFollow(u.id)}}>un follow</button>
-                            : <button onClick={() => {props.usersFollow(u.id)}} >follow</button>
+                                ? <button onClick={() => {
+                                    props.usersUnFollow(u.id)
+                                }}>un follow</button>
+                                : <button onClick={() => {
+                                    props.usersFollow(u.id)
+                                }}>follow</button>
                         }
 
                     </div>
                     <div className={css.users__right}>
                         <div className={css.users__userInfo}>
                                 <span className={css.users__name}>
-                                    {u.fullName}
+                                    {u.name}
                                 </span>
                             <span>
                                     {u.status}
@@ -69,10 +42,10 @@ const Users = (props) => {
                         </div>
                         <div className={css.users__location}>
                                 <span>
-                                    {u.location.country}
+                                    {'u.location.country'}
                                 </span>
                             <span>
-                                    {u.location.city}
+                                    {'u.location.city'}
                                 </span>
                         </div>
                     </div>
