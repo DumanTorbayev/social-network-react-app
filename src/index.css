@@ -486,3 +486,72 @@ dd {
     background-color: #F1F1F1;
     height: 100%;
 }
+
+.rc-pagination {
+    display: flex;
+    justify-content: center;
+    margin: 1.875rem .625rem .625rem .625rem;
+    padding: 0;
+    list-style: none;
+}
+
+.rc-pagination .rc-pagination-item, .rc-pagination-next, .rc-pagination-prev,
+.rc-pagination-jump-prev, .rc-pagination-jump-next {
+    padding: .5rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid #313131;
+    border-radius: 5px;
+    margin: 0 .2rem;
+    transition: .3s;
+}
+
+.rc-pagination .rc-pagination-item a, .rc-pagination-next a, .rc-pagination-prev a,
+.rc-pagination-jump-prev a, .rc-pagination-jump-next a {
+    color: #313131;
+    transition: .3s;
+}
+
+.rc-pagination .rc-pagination-item:hover, .rc-pagination-next:hover, .rc-pagination-prev:hover,
+.rc-pagination-jump-prev:hover, .rc-pagination-jump-next:hover {
+    background-color: #FC8368;
+}
+
+.rc-pagination .rc-pagination-item:hover a, .rc-pagination-next:hover a, .rc-pagination-prev:hover a,
+.rc-pagination-jump-prev:hover a, .rc-pagination-jump-next:hover a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.rc-pagination .rc-pagination-item:focus, .rc-pagination-next:focus, .rc-pagination-prev:focus,
+.rc-pagination-jump-prev:focus, .rc-pagination-jump-next:focus {
+    outline: none;
+}
+
+.rc-pagination-item.rc-pagination-item-active {
+    background-color: #FC8368;
+}
+
+.rc-pagination-item.rc-pagination-item-active a{
+    color: #fff;
+}
+
+.rc-pagination-next a:after {
+    content: '>';
+    display: block;
+}
+
+.rc-pagination-jump-next a:after {
+    content: '...';
+    display: block;
+}
+
+.rc-pagination-prev a:after {
+    content: '<';
+    display: block;
+}
+
+.rc-pagination-jump-prev a:after {
+    content: '...';
+    display: block;
+}

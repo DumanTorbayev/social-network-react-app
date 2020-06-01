@@ -1,7 +1,8 @@
 import React from 'react';
 import css from './Users.module.scss';
 import * as axios from 'axios';
-import userPhoto from '../../assets/images/no-avatar.png'
+import userPhoto from '../../assets/images/no-avatar.png';
+import Pagination from 'rc-pagination';
 
 
 /*const Users = (props) => {
@@ -58,13 +59,24 @@ import userPhoto from '../../assets/images/no-avatar.png'
 class Users extends React.Component {
 
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items);
+                this.props.setTotalUsersCount(response.data.totalCount);
             });
     }
 
+    onPageChanged = (pageNumber) => {
+        console.log(pageNumber);
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            });
+    };
+
     render() {
+
         return (
             <div className={css.users_wrap}>
                 {
@@ -102,6 +114,13 @@ class Users extends React.Component {
                         </div>
                     </div>)
                 }
+                <Pagination
+                    onChange={this.onPageChanged}
+                    defaultPageSize={this.props.pageSize}
+                    defaultCurrent={this.props.currentPage}
+                    total={this.props.totalUsersCount}
+                    hideOnSinglePage={true}
+                />
             </div>
         )
     }
