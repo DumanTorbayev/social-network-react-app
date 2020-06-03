@@ -1,48 +1,57 @@
 .users_wrap {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   padding: 1rem;
 }
 
 .users {
   &__media {
     display: flex;
-    justify-content: space-between;
-    background-color: #313131;
-    margin-bottom: .75rem;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 1rem;
-    color: #FC8368;
-  }
-
-  &__left {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    width: 15%;
-
-    img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-    }
+    flex: 0 0 31%;
+    background-color: #fff;
+    margin-bottom: 1.25rem;
+    margin-right: .5rem;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: .75rem;
+    box-shadow: 0 0 5px -3px #313131;
 
     button {
       background-color: #FC8368;
-      color: #313131;
+      color: #fff;
       font-weight: bold;
-      text-transform: uppercase;
+      text-transform: capitalize;
       font-size: .875rem;
-      padding: .5rem;
-      border: none;
+      line-height: 1;
+      padding: .5rem 1rem .3rem;
+      border: 1px solid transparent;
       border-radius: 10px;
       transition: .5s;
-      width: 100%;
+      margin-bottom: 1rem;
+      margin-top: auto;
 
       &:hover {
-        background-color: #313131;
+        background-color: #fff;
         color: #FC8368;
+        border-color: #FC8368;
       }
+    }
+  }
+
+  &__img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 5px #313131;
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    img {
+      width: 100%;
     }
   }
 
@@ -56,20 +65,25 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 70%;
     font-weight: bold;
     font-size: 1.125rem;
   }
 
   &__name {
+    margin-bottom: .75rem;
+    text-align: center;
+  }
+
+  &__status {
     margin-bottom: 1rem;
+    text-align: center;
+    font-size: .875rem;
+    font-style: italic;
   }
 
   &__location {
-    width: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
   }
 }
