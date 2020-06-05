@@ -27,7 +27,7 @@ const App = (props) => {
                     <Route path="/music"
                            component={Music}
                     />
-                    <Route exact path="/"
+                    <Route path="/profile"
                            render={() => <Profile store={props.store}/>}
                     />
                     <Route path="/settings"

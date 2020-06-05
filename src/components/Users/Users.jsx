@@ -2,6 +2,7 @@ import React from 'react';
 import css from './Users.module.scss';
 import userPhoto from '../../assets/images/user-picture.svg';
 import Pagination from 'rc-pagination';
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
     return (
@@ -29,13 +30,8 @@ const Users = (props) => {
                                     props.usersFollow(u.id)
                                 }}>follow</button>
                         }
-                        <div className={css.users__location}>
-                        <span>
-                            {'u.location.country'}
-                        </span>
-                            <span>
-                            {'u.location.city'}
-                        </span>
+                        <div className={css.users__viewProfile}>
+                            <NavLink to={`/profile/${u.id}`}>View Profile</NavLink>
                         </div>
                     </div>)
                 }
