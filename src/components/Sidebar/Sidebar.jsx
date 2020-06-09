@@ -12,7 +12,7 @@ const Sidebar = (props) => {
                 <li><NavLink className={css.item} activeClassName={css.active} to="/news">News</NavLink></li>
                 <li><NavLink className={css.item} activeClassName={css.active} to="/dialogs">Messages</NavLink></li>
                 <li><NavLink className={css.item} activeClassName={css.active} to="/music">Music</NavLink></li>
-                <li><NavLink className={css.item} activeClassName={css.active} exact to="/">Profile</NavLink></li>
+                <li><NavLink className={css.item} activeClassName={css.active} to="/profile">Profile</NavLink></li>
                 <li><NavLink className={css.item} activeClassName={css.active} to="/settings">Settings</NavLink></li>
                 <li><NavLink className={css.item} activeClassName={css.active} to="/users">Users</NavLink></li>
             </ul>

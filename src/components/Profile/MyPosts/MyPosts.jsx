@@ -1,7 +1,6 @@
 import React from 'react';
 import Post from "./Post/Post";
 import css from './MyPosts.module.scss';
-//import Action Creators
 
 const MyPosts = (props) => {
 
@@ -9,12 +8,12 @@ const MyPosts = (props) => {
     let newPostText = props.newPostText;
 
     let onAddNewPost = () => {
-        props.addPost();
+        props.addPostAction();
     };
 
     let onPostChange = (e) => {
         let text = e.target.value;
-        props.updateNewPostText(text);
+        props.updateNewPostTextAction(text);
     };
 
     return (

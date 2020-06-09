@@ -9,6 +9,7 @@ import Settings from "../Settings/Settings";
 import DialogsContainer from "../Dialogs/DialogsContainer";
 import SidebarContainer from "../Sidebar/SidebarContainer";
 import UsersContainer from "../Users/UsersContainer";
+import ProfileContainer from "../Profile/ProfileContainer";
 
 const App = (props) => {
 
@@ -28,7 +29,7 @@ const App = (props) => {
                            component={Music}
                     />
                     <Route path="/profile"
-                           render={() => <Profile store={props.store}/>}
+                           render={() => <ProfileContainer />}
                     />
                     <Route path="/settings"
                            component={Settings}

@@ -10,12 +10,12 @@ const Dialogs = (props) => {
     let newMessageText = props.dialogsPage.newMessageText;
 
     let onAddNewMessage = () => {
-        props.addNewMessage()
+        props.addMessage()
     };
 
     let onWriteMessage = (event) => {
         let enterText = event.target.value;
-        props.messageWrite(enterText)
+        props.updateNewMessageText(enterText)
     };
 
     return (
