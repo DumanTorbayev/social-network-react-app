@@ -7,10 +7,15 @@
   }
 
   .user {
+    display: flex;
     padding: 1rem;
 
-    img {
-      width: 8rem;
+    .imgWrap {
+      flex: 0 0 15%;
+    }
+
+    &_info {
+      flex: 0 0 85%;
     }
   }
 }

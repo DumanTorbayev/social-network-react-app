@@ -28,7 +28,7 @@ const App = (props) => {
                     <Route path="/music"
                            component={Music}
                     />
-                    <Route path="/profile"
+                    <Route path="/profile/:userId?"
                            render={() => <ProfileContainer />}
                     />
                     <Route path="/settings"

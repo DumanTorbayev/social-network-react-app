@@ -16,7 +16,21 @@ const ProfileInfo = (props) => {
                 <img src="http://tse4.mm.bing.net/th?id=ORT.TH_470633631&pid=1.12&eid=G.470633631" alt=""/>
             </div>
             <div className={css.user}>
-                <img src={props.userProfile.photos.small} alt=""/>
+                <div className={css.imgWrap}>
+                    <img src={props.userProfile.photos.small} alt=""/>
+                </div>
+                <div className={css.user_info}>
+                    <div className={css.name}>{props.userProfile.fullName}</div>
+                    {props.userProfile.aboutMe}
+                    <div className={css.work_status}>
+                        <div>
+                            Статус поиска работы: {props.userProfile.lookingForAJob ? <div>Ищу работу</div> : <div>Не ищу работу</div>}
+                        </div>
+                        <div>
+                            {props.userProfile.lookingForAJobDescription}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
