@@ -1,10 +1,11 @@
 import React from 'react';
 import css from './ProfilrInfo.module.scss'
 import Preloader from "../../Common/Preloader/Preloader";
+import userPhoto from "../../../assets/images/user-picture.svg";
 
 const ProfileInfo = (props) => {
 
-    if(!props.userProfile) {
+    if (!props.userProfile) {
         return (
             <Preloader/>
         )
@@ -12,19 +13,25 @@ const ProfileInfo = (props) => {
 
     return (
         <div className={css.profile}>
-            <div className={css.headBg}>
-                <img src="http://tse4.mm.bing.net/th?id=ORT.TH_470633631&pid=1.12&eid=G.470633631" alt=""/>
-            </div>
             <div className={css.user}>
                 <div className={css.imgWrap}>
-                    <img src={props.userProfile.photos.small} alt=""/>
+                    <div>
+                        <img src={props.userProfile.photos.small !== null ?
+                            props.userProfile.photos.small :
+                            userPhoto} alt=""/>
+                    </div>
                 </div>
                 <div className={css.user_info}>
-                    <div className={css.name}>{props.userProfile.fullName}</div>
-                    {props.userProfile.aboutMe}
-                    <div className={css.work_status}>
+                    <div className={css.user_name}>
+                        {props.userProfile.fullName}
+                    </div>
+                    <div>
+                        {props.userProfile.user_aboutMe}
+                    </div>
+                    <div>
                         <div>
-                            Статус поиска работы: {props.userProfile.lookingForAJob ? <div>Ищу работу</div> : <div>Не ищу работу</div>}
+                            Статус поиска работы: {props.userProfile.lookingForAJob ? <span>Ищу работу</span> :
+                            <span>Не ищу работу</span>}
                         </div>
                         <div>
                             {props.userProfile.lookingForAJobDescription}

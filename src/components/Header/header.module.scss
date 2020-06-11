@@ -33,5 +33,17 @@
     }
   }
 
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
+  .login {
+    color: #fff;
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
 }

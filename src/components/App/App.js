@@ -1,8 +1,6 @@
 import React from 'react';
 import {Route} from "react-router-dom";
 import css from './App.module.scss'
-import Header from '../Header/Header.jsx';
-import Profile from "../Profile/Profile.jsx";
 import News from "../News/News";
 import Music from "../Music/Music";
 import Settings from "../Settings/Settings";
@@ -10,12 +8,13 @@ import DialogsContainer from "../Dialogs/DialogsContainer";
 import SidebarContainer from "../Sidebar/SidebarContainer";
 import UsersContainer from "../Users/UsersContainer";
 import ProfileContainer from "../Profile/ProfileContainer";
+import HeaderContainer from "../Header/HeaderContainer";
 
 const App = (props) => {
 
     return (
         <div className={css.container}>
-            <Header/>
+            <HeaderContainer/>
             <div className={css.contentWrap}>
                 <SidebarContainer/>
                 <div className={css.content}>

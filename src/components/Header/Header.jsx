@@ -1,15 +1,25 @@
 import React from 'react';
 import css from './header.module.scss';
-import {NavLink} from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
+import logo from '../../assets/images/logo.svg'
 
-const Header = () => {
+const Header = (props) => {
+    console.log(props);
     return (
         <header className={css.header}>
             <div className={css.container}>
-                <NavLink to='/news' className={css.navbarBrand}>
-                    <img src="logo.svg" alt=""/>
-                    <span>Gazebo</span>
-                </NavLink>
+                <nav className={css.navbar}>
+                    <NavLink to='/' className={css.navbarBrand}>
+                        <img src={logo} alt=""/>
+                        <span>Gazebo</span>
+                    </NavLink>
+
+                    <div className={css.login}>
+                        {
+                            props.isAuth ? <div>{props.login}</div> : <Link to={'/login'}>Login</Link>
+                        }
+                    </div>
+                </nav>
             </div>
         </header>
     )
