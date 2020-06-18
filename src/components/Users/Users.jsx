@@ -3,7 +3,6 @@ import css from './Users.module.scss';
 import userPhoto from '../../assets/images/user-picture.svg';
 import Pagination from 'rc-pagination';
 import {NavLink} from "react-router-dom";
-import {followUnFollowAPI} from "../../api/api";
 
 const Users = (props) => {
     return (
@@ -25,26 +24,10 @@ const Users = (props) => {
                         {
                             u.followed
                                 ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                    props.toggleFollowingProgress(true, u.id);
-                                    followUnFollowAPI.unFollowUser(u.id)
-                                        .then(data => {
-                                            if (data.resultCode === 0) {
-                                                props.userUnFollow(u.id);
-                                                props.toggleFollowingProgress(false, u.id);
-                                            }
-                                        });
+                                    props.unFollow(u.id);
                                 }}>un follow</button>
                                 : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                    props.toggleFollowingProgress(true, u.id);
-                                    followUnFollowAPI.followUser(u.id)
-                                        .then(data => {
-                                            if (data.resultCode === 0) {
-                                                props.userFollow(u.id);
-                                                props.toggleFollowingProgress(false, u.id);
-                                            }
-                                        });
-
-
+                                    props.follow(u.id);
                                 }}>follow</button>
                         }
                         <div className={css.users__viewProfile}>

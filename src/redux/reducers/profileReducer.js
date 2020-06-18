@@ -1,3 +1,6 @@
+import {usersAPI} from "../../api/api";
+import {setTotalUsersCount, setUsers, toggleIsFetching} from "./usersReducer";
+
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -64,5 +67,19 @@ const profileReducer = (state = initialState, action) => {
 export const addPostAction = () => ({type: ADD_POST});
 export const updateNewPostTextAction = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text,});
 export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userProfile });
+
+
+// This is Thunk
+
+export const getUsersProfile = (userId) => {
+
+    return (dispatch) => {
+
+        usersAPI.getUserProfile(userId)
+            .then(data => {
+                dispatch(setUserProfile(data));
+            });
+    }
+};
 
 export default profileReducer;
