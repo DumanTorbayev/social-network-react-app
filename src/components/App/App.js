@@ -9,6 +9,7 @@ import SidebarContainer from "../Sidebar/SidebarContainer";
 import UsersContainer from "../Users/UsersContainer";
 import ProfileContainer from "../Profile/ProfileContainer";
 import HeaderContainer from "../Header/HeaderContainer";
+import LoginContainer from "../Login/LoginContainer";
 
 const App = (props) => {
 
@@ -35,6 +36,10 @@ const App = (props) => {
                     />
                     <Route path="/users"
                            render={()=> < UsersContainer />}
+                    />
+
+                    <Route path="/login"
+                           render={()=> < LoginContainer />}
                     />
                 </div>
             </div>
