@@ -1,0 +1,36 @@
+.login {
+  &_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10rem 0;
+
+    form {
+      width: 50%;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: .75rem;
+      padding: .625rem;
+    }
+
+    button {
+      width: 100%;
+      padding: .625rem;
+      cursor: pointer;
+    }
+  }
+
+  &_checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    input {
+      width: auto;
+      margin-right: .5rem;
+      margin-bottom: 0;
+    }
+  }
+}
