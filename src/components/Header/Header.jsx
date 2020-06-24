@@ -2,7 +2,7 @@ import React from 'react';
 import css from './header.module.scss';
 import {NavLink, Link} from "react-router-dom";
 import logo from '../../assets/images/logo.svg'
-import userPhoto from "../../assets/images/user-picture.svg";
+import userPhoto from "../../assets/images/user-picture.png";
 
 const Header = (props) => {
     return (

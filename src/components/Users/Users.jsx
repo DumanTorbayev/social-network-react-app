@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './Users.module.scss';
-import userPhoto from '../../assets/images/user-picture.svg';
+import userPhoto from '../../assets/images/user-picture.png';
 import Pagination from 'rc-pagination';
 import {NavLink} from "react-router-dom";
 
