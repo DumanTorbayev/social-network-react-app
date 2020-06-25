@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD_MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
 
 let initialState = {
     messages: [
@@ -30,26 +29,20 @@ let initialState = {
             img: 'man.png'
         },
     ],
-    newMessageText: '',
 };
 
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE: {
-            let newMessage = {
-                id: 5,
-                message: state.newMessageText,
-            };
             return {
                 ...state,
-                newMessageText: '',
-                messages: [...state.messages, newMessage]
-            };
-        }
-        case UPDATE_NEW_MESSAGE_TEXT: {
-            return {
-                ...state,
-                newMessageText: action.newMessage,
+                messages: [
+                    ...state.messages,
+                    {
+                        id: Date.now(),
+                        message: action.messageBody
+                    }
+                ]
             };
         }
         default:
@@ -58,7 +51,6 @@ const dialogsReducer = (state = initialState, action) => {
 };
 
 // Action Creators
-export const addMessage = () => ({type: ADD_MESSAGE});
-export const updateNewMessageText = (messageText) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessage: messageText,});
+export const addMessage = messageBody => ({type: ADD_MESSAGE, messageBody});
 
 export default dialogsReducer;

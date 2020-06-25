@@ -9,7 +9,7 @@ import SidebarContainer from "../Sidebar/SidebarContainer";
 import UsersContainer from "../Users/UsersContainer";
 import ProfileContainer from "../Profile/ProfileContainer";
 import HeaderContainer from "../Header/HeaderContainer";
-import Login from "../Login/Login";
+import LoginContainer from "../Login/LoginContainer";
 
 const App = (props) => {
 
@@ -39,7 +39,7 @@ const App = (props) => {
                     />
 
                     <Route path="/login"
-                           render={()=> < Login />}
+                           render={()=> < LoginContainer />}
                     />
                 </div>
             </div>

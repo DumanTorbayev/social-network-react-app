@@ -29,7 +29,7 @@ const LoginForm = (props) => {
                 <label htmlFor="1">Remember me</label>
             </div>
             <div>
-                <button type="submit">Login</button>
+                <button>Login</button>
             </div>
         </form>
     )
