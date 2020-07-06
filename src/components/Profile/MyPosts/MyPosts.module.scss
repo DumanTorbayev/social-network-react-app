@@ -11,17 +11,21 @@
     align-items: flex-start;
     margin-bottom: 2rem;
 
+    & > div {
+      width: 100%;
+    }
+
     textarea {
       resize: none;
       min-height: 100px;
       width: 50%;
-      margin-bottom: .625rem;
+      margin-bottom: .5rem;
       background-color: transparent;
       border-radius: 5px;
       color: #727272;
       padding: .5rem;
     }
-    
+
     button {
       background-color: #FF7554;
       border: none;

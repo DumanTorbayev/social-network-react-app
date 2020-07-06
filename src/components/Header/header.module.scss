@@ -45,5 +45,13 @@
       color: #ffffff;
       text-decoration: none;
     }
+
+    .auth_user {
+      button {
+        display: inline-block;
+        margin-left: 1rem;
+        cursor: pointer;
+      }
+    }
   }
 }

@@ -4,20 +4,18 @@ import Login from "./Login";
 
 class LoginContainer extends React.Component {
 
-    componentDidMount() {
-    }
-
     render() {
         return (
-            <Login />
+            <Login captcha={this.props.captcha} isAuth={this.props.isAuth} />
         )
     }
 }
 
 let mapStateToProps = state => {
     return {
-
+        captcha: state.auth.captcha,
+        isAuth: state.auth.isAuth
     }
-};
+}
 
-export default connect(mapStateToProps, {})(LoginContainer);
+export default connect(mapStateToProps, null)(LoginContainer);

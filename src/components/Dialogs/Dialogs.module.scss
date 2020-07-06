@@ -77,8 +77,12 @@
       padding: 1rem;
       border-top: 1px solid #FF7554;
 
-      textarea {
+      & > div {
         width: 80%;
+      }
+
+      textarea {
+        width: 100%;
         resize: none;
         border-radius: 5px;
         border: 1px solid #727272;

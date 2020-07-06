@@ -2,6 +2,7 @@ import React from 'react';
 import Post from "./Post/Post";
 import css from './MyPosts.module.scss';
 import {Field, reduxForm} from "redux-form";
+import {FormControl} from "../../Common/FormsControl/FormsControls";
 
 const MyPosts = (props) => {
     let postElements = props.posts.map( p => <Post likeCount={p.likesCount} key={p.id} message={p.message}/> );
@@ -22,10 +23,16 @@ const MyPosts = (props) => {
 };
 
 const AddPostForm = (props) => {
+
+
     return (
         <form action="" onSubmit={props.handleSubmit}>
             <div className={css.new_posts}>
-                <Field component={"textarea"} name={"myPost"} />
+                <Field
+                    component={FormControl('textarea')}
+                    name={"myPost"}
+                    placeholder={"Post message"}
+                />
                 <button>Send</button>
             </div>
         </form>

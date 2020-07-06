@@ -3,6 +3,7 @@ import css from './Dialogs.module.scss'
 import DialogItems from "./DialogItems/DialogItems";
 import MessageItems from "./MessageItems/MessageItems";
 import {Field, reduxForm} from "redux-form";
+import {FormControl} from "../Common/FormsControl/FormsControls";
 
 
 const Dialogs = (props) => {
@@ -31,7 +32,7 @@ const AddMessageForm = (props) => {
         <form action="" onSubmit={props.handleSubmit}>
             <div className={css.inputWrap}>
                 <Field
-                    component={"textarea"}
+                    component={FormControl('textarea')}
                     name={"messagesField"}
                     placeholder={"Введите сообщение"}
                 />

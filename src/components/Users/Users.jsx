@@ -10,6 +10,7 @@ const Users = (props) => {
             <div className={css.users_wrap}>
                 {
                     props.users.map(u => <div className={css.users__media} key={u.id}>
+
                         <div className={css.users__img}>
                             <img src={u.photos.small !== null ? u.photos.small : userPhoto} alt=""/>
                         </div>

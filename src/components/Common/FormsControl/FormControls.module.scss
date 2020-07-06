@@ -1,0 +1,15 @@
+.form_control {
+  display: flex;
+  flex-direction: column;
+  &.error {
+    input, textarea {
+      border: 1px solid red;
+    }
+
+    span {
+      margin-bottom: .625rem;
+      color: red;
+      font-weight: 500;
+    }
+  }
+}

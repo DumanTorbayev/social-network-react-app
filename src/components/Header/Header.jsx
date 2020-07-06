@@ -19,12 +19,13 @@ const Header = (props) => {
                         {
                             props.isAuth ?
                                 <div className={css.auth_user}>
-                                    {/*<div className={css.avatar}>
-                                        <img src={props.userProfile.photos.small !== null ?
-                                            props.userProfile.photos.small :
-                                            userPhoto} alt=""/>
-                                    </div>*/}
+                                    <div className={css.avatar}>
+                                        {/*<img src={props.userAvatar.photos.small !== null ?
+                                            props.userAvatar.photos.small :
+                                            userPhoto} alt=""/>*/}
+                                    </div>
                                     {props.login}
+                                    <button onClick={props.logout}>Log out</button>
                                 </div> :
                                 <Link to={'/login'}>Login</Link>
                         }
