@@ -89,7 +89,7 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
 
 // This is Thunk
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (currentPage, pageSize) => {
 
     return (dispatch) => {
 
@@ -103,7 +103,7 @@ export const getUsers = (currentPage, pageSize) => {
     }
 };
 
-export const getUsersPage = (pageNumber, pageSize) => {
+export const requestUsersPage = (pageNumber, pageSize) => {
 
     return (dispatch) => {
 

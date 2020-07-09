@@ -517,8 +517,9 @@ dd {
     background-color: #FC8368;
 }
 
-.rc-pagination .rc-pagination-item:hover a, .rc-pagination-next:hover a, .rc-pagination-prev:hover a,
-.rc-pagination-jump-prev:hover a, .rc-pagination-jump-next:hover a {
+.rc-pagination .rc-pagination-item:hover a, .rc-pagination-next:hover .rc-pagination-item-link,
+.rc-pagination-prev:hover .rc-pagination-item-link, .rc-pagination-jump-prev:hover a,
+.rc-pagination-jump-next:hover .rc-pagination-item-link {
     text-decoration: none;
     color: #fff;
 }
@@ -536,22 +537,27 @@ dd {
     color: #fff;
 }
 
-.rc-pagination-next a:after {
+.rc-pagination-item-link {
+    border: none;
+    background-color: transparent;
+}
+
+.rc-pagination-next .rc-pagination-item-link:after {
     content: '>';
     display: block;
 }
 
-.rc-pagination-jump-next a:after {
+.rc-pagination-jump-next .rc-pagination-item-link:after {
     content: '...';
     display: block;
 }
 
-.rc-pagination-prev a:after {
+.rc-pagination-prev .rc-pagination-item-link:after {
     content: '<';
     display: block;
 }
 
-.rc-pagination-jump-prev a:after {
+.rc-pagination-jump-prev .rc-pagination-item-link:after {
     content: '...';
     display: block;
 }
