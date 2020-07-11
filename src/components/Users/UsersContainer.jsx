@@ -9,6 +9,7 @@ import {
 import Users from "./Users";
 import Preloader from "../Common/Preloader/Preloader";
 import {
+    //getBannedUsers,
     getCurrentPage,
     getFollowingInProgress,
     getIsFetching,

@@ -1,5 +1,4 @@
 import React from 'react';
-import css from "./ProfilrInfo.module.scss"
 
 class ProfileStatus extends React.Component {
     state = {

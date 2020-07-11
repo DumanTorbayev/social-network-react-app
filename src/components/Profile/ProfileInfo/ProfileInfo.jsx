@@ -3,6 +3,7 @@ import css from './ProfilrInfo.module.scss'
 import Preloader from "../../Common/Preloader/Preloader";
 import userPhoto from "../../../assets/images/user-picture.png";
 import ProfileStatus from "./ProfileStatus"
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
 
@@ -38,7 +39,7 @@ const ProfileInfo = (props) => {
                             {props.userProfile.lookingForAJobDescription}
                         </div>
                     </div>
-                    < ProfileStatus
+                    < ProfileStatusWithHooks
                         status={props.status}
                         updateUserStatus={props.updateUserStatus}
                     />
