@@ -46,7 +46,7 @@ const ProfileContainer = (props) => {
 
         props.getUsersProfile(userId);
         props.getUserStatus(userId);
-    },[userId])
+    }, [userId]);
 
     return (
         <Profile {...props}
@@ -67,6 +67,6 @@ let mapStateToProps = state => {
 };
 
 export default compose(
-    connect(mapStateToProps, {getUsersProfile, getUserStatus, updateUserStatus}),
+    connect(mapStateToProps, {getUsersProfile, getUserStatus, updateUserStatus}), //
     withRouter
 )(ProfileContainer)

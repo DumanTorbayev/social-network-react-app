@@ -12,7 +12,7 @@ const Login = (props) => {
 
     const onSubmit = (formData) => {
         props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
-    }
+    };
 
     if (props.isAuth) return < Redirect to="/profile"/>
 
@@ -77,6 +77,6 @@ const LoginForm = (props) => {
     )
 };
 
-const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
+const LoginReduxForm = reduxForm({form: 'login'})(LoginForm);
 
 export default connect(null, {login})(Login)
