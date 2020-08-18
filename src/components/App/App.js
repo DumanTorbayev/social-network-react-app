@@ -2,14 +2,13 @@ import React from 'react';
 import {Route, withRouter} from "react-router-dom";
 import css from './App.module.scss'
 import DialogsContainer from "../Dialogs/DialogsContainer";
-import SidebarContainer from "../Sidebar/SidebarContainer";
 import ProfileContainer from "../Profile/ProfileContainer";
 import HeaderContainer from "../Header/HeaderContainer";
 import LoginContainer from "../Login/LoginContainer";
 import {connect} from "react-redux";
 import {initializeApp} from "../../redux/actions/app";
 import {compose} from "redux";
-import {Users, Preloader} from '../index'
+import {Users, Preloader, Sidebar} from '../index';
 
 class App extends React.Component {
     componentDidMount() {
@@ -25,7 +24,7 @@ class App extends React.Component {
             <div className={css.container}>
                 <HeaderContainer/>
                 <div className={css.contentWrap}>
-                    <SidebarContainer/>
+                    <Sidebar/>
                     <div className={css.content}>
                         <Route path="/dialogs" component={DialogsContainer} />
                         <Route exact path="/profile/:userId?" component={ProfileContainer} />
