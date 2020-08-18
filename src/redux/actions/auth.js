@@ -1,39 +1,12 @@
+import {toggleIsFetching} from "../actions/users";
 import {authAPI} from "../../api/api";
-import {toggleIsFetching} from "./usersReducer";
 import {stopSubmit} from "redux-form";
-
-const SET_USER_DATA = 'SET_USER_DATA';
-const SET_CAPTCHA = 'SET_CAPTCHA';
-
-let initialState = {
-    userId: null,
-    login: null,
-    email: null,
-    captcha: null,
-    isAuth: false,
-};
-
-const authReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case SET_USER_DATA:
-            return {
-                ...state,
-                ...action.payload,
-            };
-        case SET_CAPTCHA:
-            return {
-                ...state,
-                captcha: action.captcha
-            };
-        default:
-            return state;
-    }
-};
+import {SET_CAPTCHA, SET_USER_DATA} from "../reducers/auth";
 
 export const setAuthUserData = (userId, login, email, isAuth) => ({type: SET_USER_DATA, payload: {
-    userId, login, email, isAuth
-}});
-export  const setCaptcha = (captcha) => ({type: SET_CAPTCHA, captcha})
+        userId, login, email, isAuth
+    }});
+export const setCaptcha = (captcha) => ({type: SET_CAPTCHA, captcha})
 
 // This is Thunk
 
@@ -94,5 +67,3 @@ export const getCaptcha = () => {
             })
     }
 }
-
-export default authReducer;

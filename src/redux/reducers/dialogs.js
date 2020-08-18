@@ -1,4 +1,4 @@
-const ADD_MESSAGE = 'ADD_MESSAGE';
+export const ADD_MESSAGE = 'ADD_MESSAGE';
 
 let initialState = {
     messages: [
@@ -31,7 +31,7 @@ let initialState = {
     ],
 };
 
-const dialogsReducer = (state = initialState, action) => {
+const dialogs = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE: {
             return {
@@ -50,7 +50,5 @@ const dialogsReducer = (state = initialState, action) => {
     }
 };
 
-// Action Creators
-export const addMessage = messageBody => ({type: ADD_MESSAGE, messageBody});
 
-export default dialogsReducer;
+export default dialogs;

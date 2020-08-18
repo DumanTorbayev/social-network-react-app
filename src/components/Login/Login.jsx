@@ -4,7 +4,7 @@ import {Field, reduxForm} from "redux-form";
 import {FormControl} from "../Common/FormsControl/FormsControls";
 import {emailValidate, required} from "../../utils/validators";
 import {connect} from "react-redux";
-import {login} from "../../redux/reducers/authReducer";
+import {login} from "../../redux/actions/auth";
 import {Redirect} from "react-router-dom";
 
 

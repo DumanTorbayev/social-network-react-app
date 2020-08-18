@@ -23,8 +23,8 @@ let initialState = {
     ],
 };
 
-const sidebarReducer = (state = initialState, action) => {
+const sidebar = (state = initialState, action) => {
     return state
 };
 
-export default sidebarReducer;
+export default sidebar;

@@ -1,8 +1,6 @@
-import {profileAPI} from "../../api/api";
-
-const ADD_POST = 'ADD_POST';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const SET_STATUS = 'SET_STATUS';
+export const ADD_POST = 'ADD_POST';
+export const SET_USER_PROFILE = 'SET_USER_PROFILE';
+export const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
     posts: [
@@ -31,7 +29,7 @@ let initialState = {
     status: ''
 };
 
-const profileReducer = (state = initialState, action) => {
+const profile = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
             let newPost = {
@@ -60,44 +58,4 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
-// Action Creators
-export const addPostAction = addedPost => ({type: ADD_POST, addedPost});
-export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userProfile });
-export const setStatus = (status) => ({type: SET_STATUS, status });
-
-
-// This is Thunk
-
-export const getUsersProfile = (userId) => {
-
-    return (dispatch) => {
-        profileAPI.getProfile(userId)
-            .then(response => {
-                dispatch(setUserProfile(response));
-            });
-    }
-};
-
-export const getUserStatus = (userId) => {
-
-    return (dispatch) => {
-        profileAPI.getStatus(userId)
-            .then(response => {
-                dispatch(setStatus(response));
-            });
-    }
-};
-
-export const updateUserStatus = (status) => {
-
-    return (dispatch) => {
-        profileAPI.updateStatus(status)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(setStatus(status));
-                }
-            });
-    }
-};
-
-export default profileReducer;
+export default profile;
