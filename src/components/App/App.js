@@ -1,49 +1,42 @@
-import React from 'react';
-import {Route, withRouter} from "react-router-dom";
+import React, {useEffect} from 'react';
+import {Route} from "react-router-dom";
 import css from './App.module.scss'
-import DialogsContainer from "../Dialogs/DialogsContainer";
-import {connect} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {initializeApp} from "../../redux/actions/app";
-import {compose} from "redux";
-import {Users, Preloader, Sidebar, Profile, Login, Header} from '../index';
+import {Users, Preloader, Sidebar, Profile, Login, Header, Dialogs} from '../index';
 
-class App extends React.Component {
-    componentDidMount() {
-        this.props.initializeApp();
-    }
+const App = () => {
+    const initialized = useSelector((state) => {
+        return state.app.initialized
+    })
+    const dispatch = useDispatch();
 
-    render() {
-        if(!this.props.initialized) {
-            return <Preloader />
-        }
+    useEffect(() => {
+        dispatch(initializeApp());
+    }, [])
 
-        return (
-            <div className={css.container}>
-                <Header/>
-                <div className={css.contentWrap}>
-                    <Sidebar/>
-                    <div className={css.content}>
-                        <Route path="/dialogs" component={DialogsContainer} />
-                        <Route exact path="/profile/:userId?" component={Profile} />
-                        <Route path="/users" component={Users}/>
-                        <Route path="/login" component={Login} />
+    return (
+        <div>
+            {!initialized
+                ? <Preloader/>
+                : <div className={css.container}>
+                    <Header/>
+                    <div className={css.contentWrap}>
+                        <Sidebar/>
+                        <div className={css.content}>
+                            <Route path="/dialogs" component={Dialogs}/>
+                            <Route exact path="/profile/:userId?" component={Profile}/>
+                            <Route path="/users" component={Users}/>
+                            <Route path="/login" component={Login}/>
+                        </div>
                     </div>
-                </div>
-                {/*<footer className={css.footer}>
+                    {/*<footer className={css.footer}>
                 <div className={css.footerContainer}>Footer</div>
             </footer>*/}
-            </div>
-        )
-    }
-}
+                </div>
+            }
+        </div>
+    );
+};
 
-const mapStateToProps = state => {
-    return {
-        initialized: state.app.initialized
-    }
-}
-
-export default compose(
-    withRouter,
-    connect(mapStateToProps, {initializeApp}),
-)(App);
+export default App;

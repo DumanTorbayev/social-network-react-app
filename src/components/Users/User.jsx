@@ -33,12 +33,12 @@ const User = ({photos, name, status, id, followed}) => {
                 </div>
             </div>
             {followed
-                ? <button disabled={followingInProgress.some(id => id === id)}
+                ? <button disabled={followingInProgress.some(userId => userId === id)}
                           onClick={() => handleUnFollow(id)}
                 >
                     un follow
                 </button>
-                : <button disabled={followingInProgress.some(id => id === id)}
+                : <button disabled={followingInProgress.some(userId => userId === id)}
                           onClick={() => handleFollow(id)}
                 >
                     follow

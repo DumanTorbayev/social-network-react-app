@@ -1,11 +1,11 @@
 import {createSelector} from "reselect";
 
 export const getUserProfile = (state) => {
-    return state.profilePage.userProfile
+    return state.profile.userProfile
 }
 
 export const getStatus = (state) => {
-    return state.profilePage.status
+    return state.profile.status
 }
 
 export const getAuthorizedId = (state) => {
@@ -13,7 +13,7 @@ export const getAuthorizedId = (state) => {
 }
 
 export const getPosts = (state) => {
-    return state.profilePage.posts
+    return state.profile.posts
 }
 
 // reselect selectors
