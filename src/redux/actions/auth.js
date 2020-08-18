@@ -45,19 +45,16 @@ export const login = (email, password, rememberMe, captcha) => {
     }
 };
 
-export const logout = () => {
-
-    return (dispatch) => {
-        authAPI.logout()
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(setAuthUserData(null, null, null, false));
-                    dispatch(setCaptcha(null));
-                    dispatch(getAuthUser());
-                }
-            })
-    }
-};
+export const logout = () => (dispatch) => {
+    authAPI.logout()
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(setAuthUserData(null, null, null, false));
+                dispatch(setCaptcha(null));
+                dispatch(getAuthUser());
+            }
+        })
+}
 
 export const getCaptcha = () => {
     return (dispatch) => {

@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {login} from "../../redux/actions/auth";
 import {Redirect} from "react-router-dom";
 import LoginReduxForm from "./LoginForm";
-import {getCaptcha, getIsAuth} from "../../redux/selectors/login";
+import {getCaptcha, getIsAuth} from "../../redux/selectors/auth";
 
 const Login = () => {
     const captcha = useSelector((state) => getCaptcha(state));
