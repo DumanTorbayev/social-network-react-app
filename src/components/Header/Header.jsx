@@ -2,9 +2,20 @@ import React from 'react';
 import css from './header.module.scss';
 import {NavLink, Link} from "react-router-dom";
 import logo from '../../assets/images/logo.svg'
-import userPhoto from "../../assets/images/user-picture.png";
+import {useDispatch, useSelector} from "react-redux";
+import {getLogin, getIsAuth} from "../../redux/selectors/auth";
+import {logout} from "../../redux/actions/auth";
 
-const Header = (props) => {
+const Header = () => {
+    const login = useSelector((state) => getLogin(state));
+    //const userId = useSelector((state) => getUserId(state));
+    const isAuth = useSelector((state) => getIsAuth(state));
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(logout())
+    }
+
     return (
         <header className={css.header}>
             <div className={css.container}>
@@ -15,19 +26,12 @@ const Header = (props) => {
                     </NavLink>
 
                     <div className={css.login}>
-
-                        {
-                            props.isAuth ?
-                                <div className={css.auth_user}>
-                                    <div className={css.avatar}>
-                                        {/*<img src={props.userAvatar.photos.small !== null ?
-                                            props.userAvatar.photos.small :
-                                            userPhoto} alt=""/>*/}
-                                    </div>
-                                    {props.login}
-                                    <button onClick={props.logout}>Log out</button>
-                                </div> :
-                                <Link to={'/login'}>Login</Link>
+                        {isAuth
+                            ? <div className={css.auth_user}>
+                                    {login}
+                                    <button onClick={handleLogout}>Log out</button>
+                                </div>
+                            : <Link to={'/login'}>Login</Link>
                         }
                     </div>
                 </nav>

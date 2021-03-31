@@ -1,75 +1,42 @@
-import React from 'react';
-import {Route, withRouter} from "react-router-dom";
+import React, {useEffect} from 'react';
+import {Route} from "react-router-dom";
 import css from './App.module.scss'
-import News from "../News/News";
-import Music from "../Music/Music";
-import Settings from "../Settings/Settings";
-import DialogsContainer from "../Dialogs/DialogsContainer";
-import SidebarContainer from "../Sidebar/SidebarContainer";
-import UsersContainer from "../Users/UsersContainer";
-import ProfileContainer from "../Profile/ProfileContainer";
-import HeaderContainer from "../Header/HeaderContainer";
-import LoginContainer from "../Login/LoginContainer";
-import {connect} from "react-redux";
-import {initializeApp} from "../../redux/reducers/appReducer";
-import {compose} from "redux";
-import Preloader from "../Common/Preloader/Preloader";
+import {useDispatch, useSelector} from "react-redux";
+import {initializeApp} from "../../redux/actions/app";
+import {Users, Preloader, Sidebar, Profile, Login, Header, Dialogs} from '../index';
 
-class App extends React.Component {
-    componentDidMount() {
-        this.props.initializeApp();
-    }
+const App = () => {
+    const initialized = useSelector((state) => {
+        return state.app.initialized
+    })
+    const dispatch = useDispatch();
 
-    render() {
-        if(!this.props.initialized) {
-            return <Preloader />
-        }
+    useEffect(() => {
+        dispatch(initializeApp());
+    }, [])
 
-        return (
-            <div className={css.container}>
-                <HeaderContainer/>
-                <div className={css.contentWrap}>
-                    <SidebarContainer/>
-                    <div className={css.content}>
-                        <Route path="/news"
-                               component={News}
-                        />
-                        <Route path="/dialogs"
-                               render={() => <DialogsContainer/>}
-                        />
-                        <Route path="/music"
-                               component={Music}
-                        />
-                        <Route exact path="/profile/:userId?"
-                               render={() => <ProfileContainer/>}
-                        />
-                        <Route path="/settings"
-                               component={Settings}
-                        />
-                        <Route path="/users"
-                               render={() => < UsersContainer/>}
-                        />
-
-                        <Route path="/login"
-                               render={() => <LoginContainer/>}
-                        />
+    return (
+        <div>
+            {!initialized
+                ? <Preloader/>
+                : <div className={css.container}>
+                    <Header/>
+                    <div className={css.contentWrap}>
+                        <Sidebar/>
+                        <div className={css.content}>
+                            <Route path="/dialogs" component={Dialogs}/>
+                            <Route exact path="/profile/:userId?" component={Profile}/>
+                            <Route path="/users" component={Users}/>
+                            <Route path="/login" component={Login}/>
+                        </div>
                     </div>
-                </div>
-                {/*<footer className={css.footer}>
+                    {/*<footer className={css.footer}>
                 <div className={css.footerContainer}>Footer</div>
             </footer>*/}
-            </div>
-        )
-    }
-}
+                </div>
+            }
+        </div>
+    );
+};
 
-const mapStateToProps = state => {
-    return {
-        initialized: state.app.initialized
-    }
-}
-
-export default compose(
-    withRouter,
-    connect(mapStateToProps, {initializeApp}),
-)(App);
+export default App;

@@ -1,51 +1,52 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import css from './Users.module.scss';
-import userPhoto from '../../assets/images/user-picture.png';
 import Pagination from 'rc-pagination';
-import {NavLink} from "react-router-dom";
+import {
+    getCurrentPage,
+    getIsFetching,
+    getPageSize,
+    getTotalUsersCount,
+    getUsers
+} from "../../redux/selectors/users";
+import {useDispatch, useSelector} from "react-redux";
+import Preloader from "../Common/Preloader/Preloader";
+import {requestUsers, requestUsersPage} from "../../redux/actions/users";
+import User from "./User";
 
-const Users = (props) => {
+const Users = () => {
+    const users = useSelector((state) => getUsers(state));
+    const isLoaded = useSelector((state) => getIsFetching(state));
+    const pageSize = useSelector((state) => getPageSize(state));
+    const currentPage = useSelector((state) => getCurrentPage(state));
+    const totalUsersCount = useSelector((state) => getTotalUsersCount(state));
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(requestUsers(currentPage, pageSize));
+    }, [])
+
+    const onPageChanged = (pageNumber) => {
+        dispatch(requestUsersPage(pageNumber, pageSize))
+    };
+
     return (
-        <div>
-            <div className={css.users_wrap}>
-                {
-                    props.users.map(u => <div className={css.users__media} key={u.id}>
-
-                        <div className={css.users__img}>
-                            <img src={u.photos.small !== null ? u.photos.small : userPhoto} alt=""/>
-                        </div>
-                        <div className={css.users__userInfo}>
-                            <span className={css.users__name}>
-                                {u.name}
-                            </span>
-                            <span className={css.users__status}>
-                                {u.status}
-                            </span>
-                        </div>
-                        {
-                            u.followed
-                                ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                    props.unFollow(u.id);
-                                }}>un follow</button>
-                                : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                    props.follow(u.id);
-                                }}>follow</button>
-                        }
-                        <div className={css.users__viewProfile}>
-                            <NavLink to={`/profile/${u.id}`}>View Profile</NavLink>
-                        </div>
-                    </div>)
-                }
-            </div>
-            <Pagination
-                onChange={props.onPageChanged}
-                defaultPageSize={props.pageSize}
-                defaultCurrent={props.currentPage}
-                total={props.totalUsersCount}
-                hideOnSinglePage={true}
-            />
-        </div>
-
+        <>
+            {isLoaded
+                ? <Preloader/>
+                : <div>
+                    <div className={css.users_wrap}>
+                        { users.map(userData => <User key={userData.id} {...userData} />) }
+                    </div>
+                    <Pagination
+                        onChange={onPageChanged}
+                        defaultPageSize={pageSize}
+                        defaultCurrent={currentPage}
+                        total={totalUsersCount}
+                        hideOnSinglePage={true}
+                    />
+                </div>
+            }
+        </>
     )
 };
 
