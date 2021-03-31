@@ -1,22 +1,39 @@
-import {toggleIsFetching} from "../actions/users";
+import {toggleIsFetching} from "./users";
 import {authAPI} from "../../api/api";
 import {stopSubmit} from "redux-form";
 import {SET_CAPTCHA, SET_USER_DATA} from "../reducers/auth";
 
-export const setAuthUserData = (userId, login, email, isAuth) => ({type: SET_USER_DATA, payload: {
+type setAuthUserData = {
+    type: typeof SET_USER_DATA,
+    payload: {
+        userId: number | null
+        login: string | null
+        email: string | null
+        isAuth: boolean
+    }
+}
+
+type setCaptcha = {
+    type: typeof SET_CAPTCHA,
+    captcha: object | null
+}
+
+export const setAuthUserData = (userId: number | null, login: string | null, email: string | null, isAuth: boolean): setAuthUserData => ({
+    type: SET_USER_DATA, payload: {
         userId, login, email, isAuth
-    }});
-export const setCaptcha = (captcha) => ({type: SET_CAPTCHA, captcha})
+    }
+});
+export const setCaptcha = (captcha: Object | null): setCaptcha => ({type: SET_CAPTCHA, captcha})
 
 // This is Thunk
 
 export const getAuthUser = () => {
 
-    return (dispatch) => {
+    return (dispatch: any) => {
 
         dispatch(toggleIsFetching(true));
         return authAPI.setAuthUser()
-            .then(data => {
+            .then((data: any) => {
                 if (data.resultCode === 0) {
                     let {id, login, email} = data.data;
                     dispatch(setAuthUserData(id, login, email, true));
@@ -26,13 +43,13 @@ export const getAuthUser = () => {
     }
 };
 
-export const login = (email, password, rememberMe, captcha) => {
+export const login = (email: string, password: string, rememberMe: boolean, captcha: object | null) => {
 
-    return (dispatch) => {
+    return (dispatch: any) => {
 
         dispatch(toggleIsFetching(true));
         authAPI.login(email, password, rememberMe, captcha)
-            .then(response => {
+            .then((response: any) => {
                 if (response.data.resultCode === 0) {
                     dispatch(getAuthUser())
                 } else if (response.data.resultCode === 10) {
@@ -45,9 +62,9 @@ export const login = (email, password, rememberMe, captcha) => {
     }
 };
 
-export const logout = () => (dispatch) => {
+export const logout = () => (dispatch: any) => {
     authAPI.logout()
-        .then(response => {
+        .then((response: any) => {
             if (response.data.resultCode === 0) {
                 dispatch(setAuthUserData(null, null, null, false));
                 dispatch(setCaptcha(null));
@@ -57,9 +74,9 @@ export const logout = () => (dispatch) => {
 }
 
 export const getCaptcha = () => {
-    return (dispatch) => {
+    return (dispatch: any) => {
         authAPI.setCaptcha()
-            .then(data => {
+            .then((data: any) => {
                 dispatch(setCaptcha(data))
             })
     }

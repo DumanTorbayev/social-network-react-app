@@ -2,14 +2,16 @@ export const SET_USER_DATA = 'SET_USER_DATA';
 export const SET_CAPTCHA = 'SET_CAPTCHA';
 
 let initialState = {
-    userId: null,
-    login: null,
-    email: null,
-    captcha: null,
+    userId: null as null | number,
+    login: null as null | string,
+    email: null as null | string,
+    captcha: null as object | null,
     isAuth: false,
 };
 
-const auth = (state = initialState, action) => {
+type initialState = typeof initialState
+
+const auth = (state = initialState, action: any): initialState => {
     switch (action.type) {
         case SET_USER_DATA:
             return {
@@ -19,7 +21,7 @@ const auth = (state = initialState, action) => {
         case SET_CAPTCHA:
             return {
                 ...state,
-                captcha: action.captcha
+                captcha: action.captcha,
             };
         default:
             return state;

@@ -1,3 +1,9 @@
+type friends = {
+    id: number,
+    name: string,
+    img: string
+}
+
 let initialState = {
     friends: [
         {
@@ -20,10 +26,12 @@ let initialState = {
             name: "Mark",
             img: 'man.png'
         },
-    ],
+    ] as Array<friends>,
 };
 
-const sidebar = (state = initialState, action) => {
+type initialStateType = typeof initialState
+
+const sidebar = (state = initialState, action: any): initialStateType => {
     return state
 };
 

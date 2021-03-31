@@ -27,7 +27,7 @@ const Profile = ({match, history}) => {
 
     return (
         <div className={css.profileContainer}>
-            <ProfileInfo />
+            <ProfileInfo isOwner={!match.params.userId}/>
             <MyPosts/>
         </div>
     )

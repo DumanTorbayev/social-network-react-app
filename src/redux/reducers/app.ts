@@ -1,10 +1,14 @@
 export const SET_INITIALIZED = 'SET_INITIALIZED';
 
-let initialState = {
+type initialStateType = {
+    initialized: boolean
+}
+
+let initialState: initialStateType = {
     initialized: false,
 };
 
-const app = (state = initialState, action) => {
+const app = (state = initialState, action: any): initialStateType => {
     switch (action.type) {
         case SET_INITIALIZED:
             return {

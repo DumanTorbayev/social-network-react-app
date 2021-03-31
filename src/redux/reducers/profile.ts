@@ -1,6 +1,15 @@
+import {userProfileType} from "../actions/profile";
+
 export const ADD_POST = 'ADD_POST';
 export const SET_USER_PROFILE = 'SET_USER_PROFILE';
 export const SET_STATUS = 'SET_STATUS';
+export const SET_PHOTO = 'SET_PHOTO';
+
+type posts = {
+    id: number | null,
+    message: string | null,
+    likesCount: number | null,
+}
 
 let initialState = {
     posts: [
@@ -24,12 +33,15 @@ let initialState = {
             message: "И вот я здесь",
             likesCount: 125,
         },
-    ],
-    userProfile: null,
-    status: ''
+    ] as Array<posts>,
+    userProfile: null as any | null,
+    status: '' as string,
+    photo: null as object | null
 };
 
-const profile = (state = initialState, action) => {
+type initialStateType = typeof initialState
+
+const profile = (state = initialState, action: any): initialStateType => {
     switch (action.type) {
         case ADD_POST: {
             let newPost = {
@@ -52,6 +64,11 @@ const profile = (state = initialState, action) => {
             return {
                 ...state,
                 status: action.status
+            }
+        case SET_PHOTO:
+            return  {
+                ...state,
+                userProfile: {...state.userProfile, photos:action.photo}
             }
         default:
             return state;

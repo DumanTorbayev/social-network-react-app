@@ -22,7 +22,7 @@ const User = ({photos, name, status, id, followed}) => {
         <div className={css.users__media}>
 
             <div className={css.users__img}>
-                <img src={photos.small !== null ? photos.small : userPhoto} alt=""/>
+                <img src={photos.small ? photos.small : userPhoto} alt=""/>
             </div>
             <div className={css.users__userInfo}>
                 <div className={css.users__name}>
