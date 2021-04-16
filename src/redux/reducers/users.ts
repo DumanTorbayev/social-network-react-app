@@ -1,3 +1,5 @@
+import {UserType} from "../../types/types";
+
 export const FOLLOW = 'FOLLOW';
 export const UN_FOLLOW = 'UN_FOLLOW';
 export const SET_USERS = 'SET_USERS';
@@ -7,17 +9,17 @@ export const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 export const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
-    users: [] as Array<any>,
-    pageSize: 15 as number,
-    totalUsersCount: 0 as number,
-    currentPage: 1 as number,
-    isFetching: false as boolean,
-    followingInProgress: [] as Array<any>,
+    users: [] as Array<UserType>,
+    pageSize: 15,
+    totalUsersCount: 0,
+    currentPage: 1,
+    isFetching: false,
+    followingInProgress: [] as Array<number>, // array of users id
 };
 
 type initialStateType = typeof initialState
 
-const users = (state = initialState, action: any) => {
+const users = (state = initialState, action: any): initialStateType => {
     switch (action.type) {
         case FOLLOW:
             return {

@@ -3,6 +3,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {updateUserStatus} from "../../../redux/actions/profile";
 import {getStatus} from "../../../redux/selectors/profiles";
 
+import css from './ProfilrInfo.module.scss'
+
 const ProfileStatus = () => {
     const userStatus = useSelector((state) => getStatus(state));
     const [editMode, setEditMode] = useState(false);
@@ -25,7 +27,7 @@ const ProfileStatus = () => {
     }
 
     return (
-        <div>
+        <div className={css.status}>
             {!editMode &&
             <div>
                 <span onDoubleClick={activateEditMode}>{userStatus || `Введите статус`}</span>

@@ -1,4 +1,4 @@
-import {userProfileType} from "../actions/profile";
+import {photosType} from "../../types/types";
 
 export const ADD_POST = 'ADD_POST';
 export const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -9,6 +9,27 @@ type posts = {
     id: number | null,
     message: string | null,
     likesCount: number | null,
+}
+
+export type userProfileType = {
+    userId: number
+    aboutMe: string
+    contacts: contactsType
+    fullName: string
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    photos: photosType
+}
+
+type contactsType = {
+    facebook: string
+    github: string
+    instagram: string
+    mainLink: string
+    twitter: string
+    vk: string
+    website: string
+    youtube: string
 }
 
 let initialState = {
@@ -34,9 +55,8 @@ let initialState = {
             likesCount: 125,
         },
     ] as Array<posts>,
-    userProfile: null as any | null,
+    userProfile: null as userProfileType | null,
     status: '' as string,
-    photo: null as object | null
 };
 
 type initialStateType = typeof initialState
@@ -68,7 +88,7 @@ const profile = (state = initialState, action: any): initialStateType => {
         case SET_PHOTO:
             return  {
                 ...state,
-                userProfile: {...state.userProfile, photos:action.photo}
+                userProfile: {...state.userProfile, photos:action.photo} as userProfileType
             }
         default:
             return state;

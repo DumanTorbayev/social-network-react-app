@@ -7,20 +7,11 @@ import {
     TOGGLE_IS_FETCHING, TOGGLE_IS_FOLLOWING_PROGRESS,
     UN_FOLLOW
 } from "../reducers/users";
-import {photosType} from "./profile";
-
-type usersType = {
-    followed: boolean
-    id: number
-    name: string
-    photos: photosType
-    status: string | null
-    uniqueUrlName: string | null
-}
+import {UserType} from "../../types/types";
 
 type setUsersType = {
     type: typeof SET_USERS
-    users: usersType
+    users: Array<UserType>
 }
 
 type setTotalUsersCountType = {
@@ -38,11 +29,17 @@ type toggleIsFetchingType = {
     isFetching: boolean
 }
 
+type toggleFollowingProgressType = {
+    type: typeof TOGGLE_IS_FOLLOWING_PROGRESS
+    isFetching: boolean,
+    userId: number
+}
+
 export const followSuccess = (userId: number) => ({type: FOLLOW, userId});
 
 export const unFollowSuccess = (userId: number) => ({type: UN_FOLLOW, userId});
 
-export const setUsers = (users: usersType): setUsersType => ({type: SET_USERS, users});
+export const setUsers = (users: Array<UserType>): setUsersType => ({type: SET_USERS, users});
 
 export const setTotalUsersCount = (count: number): setTotalUsersCountType => ({type: SET_TOTAL_USERS_COUNT, count});
 
@@ -50,7 +47,7 @@ export const setCurrentPages = (currentPage: number): setCurrentPagesType => ({t
 
 export const toggleIsFetching = (isFetching: boolean): toggleIsFetchingType => ({type: TOGGLE_IS_FETCHING, isFetching});
 
-export const toggleFollowingProgress = (isFetching: boolean, userId: number) => ({
+export const toggleFollowingProgress = (isFetching: boolean, userId: number): toggleFollowingProgressType => ({
     type: TOGGLE_IS_FOLLOWING_PROGRESS,
     isFetching,
     userId
